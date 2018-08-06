@@ -1,0 +1,53 @@
+<!-------------------------------------------------------------------------
+	DESCRIPTION : Write a Javascript program to determine the perimeter of the island
+	
+	AUTHOR : SHRADDHA
+	
+	DATE   : 21/06/18
+--------------------------------------------------------------------------->
+<!DOCTYPE html>
+<html>
+	<script>
+		var arr=[[],[],[],[]];
+		var strips = 0;
+		for(var i=0; i<4;i++){
+			var holder = [];
+				var isl = prompt("enter island range");
+				for(var u = 0; u < isl.length; u++){
+					holder.push(isl[u]);
+				}
+			 arr[i].push(holder);
+			 holder = [];
+		}
+		for(var i=0; i<4; i++){
+				var NoN = 0;
+				for(var j=0; j < 4;j++){
+					if(arr[i][0][j] == 1)
+					{
+						NoN++;
+					}
+				}
+				for(var d = 1; d<=4; d++){
+						if(NoN == d){
+							NoN += (d+2);
+							break;
+						}
+				}
+			strips += NoN;
+		}
+		for(var i=0; i < 4; i++){
+			if(i!=3){
+				for(var j=0; j<4; j++){
+					if(arr[i][0][j] == 1 && arr[i+1][0][j] == 1){
+						strips -= 2;
+					}
+				}
+			}
+			else{
+				break;
+			}
+		}
+		document.write("<br>the total perimeter in number of strips are "+ strips);
+	</script>
+</html>	
+		
